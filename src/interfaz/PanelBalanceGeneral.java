@@ -85,4 +85,5 @@ public class PanelBalanceGeneral extends JPanel{
 	public void actualizarTotales() {
 		totales.actualizarPanel();
 	}
+	
 }

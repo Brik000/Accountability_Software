@@ -1,5 +1,6 @@
 package mundo;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class BalanceGeneral {
@@ -84,6 +85,8 @@ public class BalanceGeneral {
 		}
 	
 }
+	
+
 	
 	public ArrayList<Activo> getActivos() {
 		return activos;
