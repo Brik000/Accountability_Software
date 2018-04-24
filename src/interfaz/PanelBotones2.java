@@ -10,7 +10,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class PanelBotones extends JPanel implements ActionListener{
+import mundo.EstadoDeResultados;
+
+public class PanelBotones2 extends JPanel implements ActionListener{
 
 	public final static String AGREGAR="Agregar";
 	public final static String ELIMINAR="elimiar";
@@ -18,12 +20,13 @@ public class PanelBotones extends JPanel implements ActionListener{
 	JTextField nombre;
 	JTextField valor;
 	JComboBox<String> tipo;
+	JComboBox<String> tipo2;
 	JButton btnAgregar;
 	JButton btnEliminar;
 	FramePrincipal inter;
 	
-	public PanelBotones(FramePrincipal inter) {
-		this.setLayout(new GridLayout(1,5));
+	public PanelBotones2(FramePrincipal inter) {
+		this.setLayout(new GridLayout(1,6));
 		this.inter=inter;
 		btnAgregar=new JButton("Agregar");
 		btnAgregar.addActionListener(this);
@@ -35,19 +38,21 @@ public class PanelBotones extends JPanel implements ActionListener{
 		
 		nombre=new JTextField("nombre");
 		valor=new JTextField("valor");
-		String[] tipos={"Pasivo","Activo","Patrimonio"};
+		String[] tipos={"Ingreso","Gasto",};
 		tipo=new JComboBox<String>(tipos);
-		
+		String[] tipos2={"Operacional","No Operacional", "Impuesto", "Costo de Venta", "Reserva"};
+		tipo2=new JComboBox<String>(tipos2);
 		add(nombre);
 		add(valor);
 		add(tipo);
+		add(tipo2);
 		add(btnAgregar);
 		add(btnEliminar);	
 	}
 	
 	public void reestablecerValoresIniciales() {
 		this.removeAll();
-		this.setLayout(new GridLayout(1,5));
+		this.setLayout(new GridLayout(1,6));
 		btnAgregar=new JButton("Agregar");
 		btnAgregar.addActionListener(this);
 		btnAgregar.setActionCommand(AGREGAR);
@@ -58,14 +63,16 @@ public class PanelBotones extends JPanel implements ActionListener{
 		
 		nombre=new JTextField("nombre");
 		valor=new JTextField("valor");
-		String[] tipos={"Pasivo","Activo","Patrimonio"};
+		String[] tipos={"Ingreso","Gasto",};
 		tipo=new JComboBox<String>(tipos);
-		
+		String[] tipos2={"Operacional","No Operacional", "Impuesto", "Costo de Venta", "Reserva"};
+		tipo2=new JComboBox<String>(tipos2);
 		add(nombre);
 		add(valor);
 		add(tipo);
+		add(tipo2);
 		add(btnAgregar);
-		add(btnEliminar);	
+		add(btnEliminar);
 	}
 	
 	
@@ -75,44 +82,59 @@ public class PanelBotones extends JPanel implements ActionListener{
 		// TODO Auto-generated method stub
 		if(e.getActionCommand().equals(AGREGAR)) {
 			int tipillo=tipo.getSelectedIndex();
-			if(tipillo==0) {
-				try {
-				inter.agregarPasivo(nombre.getText(), Double.parseDouble(valor.getText()));
-				reestablecerValoresIniciales();
-				inter.getPanelBG().actualizarPasivos();
-				inter.getPanelBG().actualizarTotales();
-				JOptionPane.showMessageDialog(this, "El Pasivo ha sido agregado con exito");
+			int tipillo2 = tipo2.getSelectedIndex();
+			if(tipillo==0) 
+			{
+				try
+				{
+					if(tipillo2 == 0)
+					{
+						inter.agregarIngreso(nombre.getText(), Double.parseDouble(valor.getText()), EstadoDeResultados.OPERACIONAL);
+						reestablecerValoresIniciales();
+						inter.getPanelER().actualizarIngresosOp();
+						inter.getPanelER().actualizarTotales();
+						JOptionPane.showMessageDialog(this, "Ingreso Operativo ha sido agregado con exito");
 
-				}catch(Exception e1) {
+					}
+					if(tipillo2 == 1)
+					{
+						inter.agregarIngreso(nombre.getText(), Double.parseDouble(valor.getText()), EstadoDeResultados.NO_OPERACIONAL);
+						reestablecerValoresIniciales();
+						inter.getPanelER().actualizarIngresosNoOp();
+						inter.getPanelER().actualizarTotales();
+						JOptionPane.showMessageDialog(this, "Ingreso No Operativo ha sido agregado con exito");
+
+					}
+					if(tipillo2 == 2)
+					{
+						throw new Exception("No puede haber Ingresos de tipos impuestos, reservas o costo de venta");
+					}
+				}
+				catch(Exception e1) {
+					if(e1.getMessage().equals("No puede haber Ingresos de tipos impuestos, reservas o costo de venta"))
+					{
+						JOptionPane.showMessageDialog(this, e1.getMessage());
+					}
 					JOptionPane.showMessageDialog(this, "en el campo valor solo se aceptan numeros con punto como su decimal"+"\n"+"volver a intentar");
 				}
 				
-			}else if(tipillo==1) {
-				try {
-				inter.agregarActivo(nombre.getText(), Double.parseDouble(valor.getText()));
-				reestablecerValoresIniciales();
-				inter.getPanelBG().actualizarActivos();
-				inter.getPanelBG().actualizarTotales();
-				JOptionPane.showMessageDialog(this, "El Activo ha sido agregado con exito");
-			}catch(Exception e1) {
-				JOptionPane.showMessageDialog(this, "en el campo valor solo se aceptan numeros con punto como su decimal"+"\n"+"volver a intentar");
 			}
-			}else if (tipillo==2){
-				try {
-				inter.agregarPatrimonio(nombre.getText(), Double.parseDouble(valor.getText()));
-				reestablecerValoresIniciales();
-				inter.getPanelBG().actualizarPatrimonio();
-				inter.getPanelBG().actualizarTotales();
-				JOptionPane.showMessageDialog(this, "El elemento de Patrimonio ha sido agregado con exito");
-			}catch(Exception e1) {
+			else if(tipillo==1) 
+			{
+				try 
+				{
+					
+				}
+				catch(Exception e1) 
+				{
 				JOptionPane.showMessageDialog(this, "en el campo valor solo se aceptan numeros con punto como su decimal"+"\n"+"volver a intentar");
-			}
-				
-			}			
+				}			
 			
-		}else if(e.getActionCommand().equals(ELIMINAR)) {
+			}
+		}
+		else if(e.getActionCommand().equals(ELIMINAR)) {
 			int tipillo=tipo.getSelectedIndex();
-			
+			int tipillo2=tipo2.getSelectedIndex();
 			if(tipillo==0) {
 				try {
 					inter.eliminarPasivo(nombre.getText());

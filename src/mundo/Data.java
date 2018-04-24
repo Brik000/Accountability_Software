@@ -2,6 +2,7 @@ package mundo;
 
 public class Data {
 
+	
 	String nombre;
 	double valor;
 	public Data(String nombre, double valor){

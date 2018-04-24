@@ -4,6 +4,9 @@ import java.util.ArrayList;
 
 public class BalanceGeneral {
 	
+	public static final String CORRIENTE = "Corriente";
+	public static final String NO_CORRIENTE = "No Corriente";
+	
 	private ArrayList<Activo> activos;
 	private ArrayList<Pasivo> pasivos;
 	private ArrayList<Patrimonio> patrimonio;
