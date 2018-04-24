@@ -49,7 +49,7 @@ public class FramePrincipal extends JFrame{
 //		dos=new JScrollPane();
 //		tres=new JScrollPane();
 //		
-//		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+	this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 //		aux=new JPanel();
 //		aux.setLayout(new GridLayout(2,2));
 //		this.setLayout(new BorderLayout());
