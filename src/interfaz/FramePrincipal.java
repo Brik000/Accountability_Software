@@ -95,7 +95,7 @@ public class FramePrincipal extends JFrame{
 		//this.add(botones,BorderLayout.SOUTH);
 		
 		pack();
-		this.setResizable(false);
+		this.setResizable(true);
 	}
 	
 	public double totalActivos() {
@@ -107,22 +107,28 @@ public class FramePrincipal extends JFrame{
 	
 	public void eliminarActivo(String a) throws Exception {
 		BG.eliminarActivo(a);
+		pack();
 	}
 	public void eliminarPasivo(String a) throws Exception {
 		BG.eliminarPasivo(a);
+		pack();
 	}
 	public void eliminarPatrimonio(String a) throws Exception {
 		BG.eliminarPatrimonio(a);
+		pack();
 	}
 	public void agregarActivo(String a, double b) {
 		BG.anadirActivo(a, b);
+		pack();
 		
 	}
 	public void agregarPasivo(String a, double b) {
 		BG.anadirPasivo(a, b);
+		pack();
 	}
 	public void agregarPatrimonio(String a, double b) {
 		BG.anadirPatrimonio(a, b);
+		pack();
 	}
 	public ArrayList<Pasivo> darPasivos(){
 		return BG.getPasivos();
@@ -212,10 +218,12 @@ public class FramePrincipal extends JFrame{
 	public void agregarIngreso(String nombre, double valor, String tipo)
 	{
 		ER.agregarIngreso(nombre, valor, tipo);
+		pack();
 	}
 	public void agregarGasto(String nombre, double valor, String tipo)
 	{
 		ER.agregarGasto(nombre, valor, tipo);
+		pack();
 	}
 	public static void main(String[] args) {
 		FramePrincipal frame=new FramePrincipal();

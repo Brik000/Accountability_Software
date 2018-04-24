@@ -21,12 +21,13 @@ public class PanelActivos extends JPanel {
 			}
 			this.repaint();
 			this.revalidate();
-		}
+	}
+	
 	public String decimalFormatNum(double a) {
 		DecimalFormat df=new DecimalFormat("0.00");
 		return df.format(a);
 	}
-
 		
 	}
+
 

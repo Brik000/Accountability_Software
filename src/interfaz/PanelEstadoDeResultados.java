@@ -24,7 +24,7 @@ public class PanelEstadoDeResultados extends JPanel{
 	PanelData reservas;
 	PanelData costoVenta;
 	
-	PanelBotones botones;
+	PanelBotones2 botones;
 	
 	PanelTotales totales;
 	
@@ -129,38 +129,38 @@ public class PanelEstadoDeResultados extends JPanel{
 		auxPrincipal.add(reservas);
 		auxPrincipal.add(auxUtilidadNeta);
 		
-		botones = new PanelBotones(frame);
+		botones = new PanelBotones2(frame);
 		 
 		this.add(auxPrincipal,BorderLayout.CENTER);
 		this.add(botones,BorderLayout.SOUTH);
 	}
 	public void actualizarIngresosOp()
 	{
-		ingresosOp.actualizarPanel();
+		ingresosOp.actualizarPanel(frame.getER().darIngresosOperacionales());
 	}
 	public void actualizarIngresosNoOp()
 	{
-		ingresosNoOp.actualizarPanel();
+		ingresosNoOp.actualizarPanel(frame.getER().darIngresosNoOperacionales());
 	}
 	public void actualizarGastosOp()
 	{
-		gastosOp.actualizarPanel();
+		gastosOp.actualizarPanel(frame.getER().darGastosOperacionales());
 	}
 	public void actualizarGastosNoOp()
 	{
-		gastosNoOp.actualizarPanel();
+		gastosNoOp.actualizarPanel(frame.getER().darGastosNoOperacionales());
 	}
 	public void actualizarImpuestos()
 	{
-		impuestos.actualizarPanel();
+		impuestos.actualizarPanel(frame.getER().darImpuestos());
 	}
 	public void actualizarReservas()
 	{
-		reservas.actualizarPanel();
+		reservas.actualizarPanel(frame.getER().darReservas());
 	}
 	public void actualizarCostoVenta()
 	{
-		costoVenta.actualizarPanel();
+		costoVenta.actualizarPanel(frame.getER().darCostoVenta());
 	}
 	public void actualizarTotales()
 	{

@@ -105,7 +105,7 @@ public class PanelBotones2 extends JPanel implements ActionListener{
 						JOptionPane.showMessageDialog(this, "Ingreso No Operativo ha sido agregado con exito");
 
 					}
-					if(tipillo2 == 2)
+					if(tipillo2 == 2 || tipillo2 == 3 || tipillo == 4)
 					{
 						throw new Exception("No puede haber Ingresos de tipos impuestos, reservas o costo de venta");
 					}
@@ -115,21 +115,62 @@ public class PanelBotones2 extends JPanel implements ActionListener{
 					{
 						JOptionPane.showMessageDialog(this, e1.getMessage());
 					}
+					System.out.println(e1.getMessage());
 					JOptionPane.showMessageDialog(this, "en el campo valor solo se aceptan numeros con punto como su decimal"+"\n"+"volver a intentar");
 				}
 				
 			}
 			else if(tipillo==1) 
 			{
-				try 
+				try
 				{
-					
+					if(tipillo2 == 0)
+					{
+						inter.agregarGasto(nombre.getText(), Double.parseDouble(valor.getText()), EstadoDeResultados.OPERACIONAL);
+						reestablecerValoresIniciales();
+						inter.getPanelER().actualizarGastosOp();
+						inter.getPanelER().actualizarTotales();
+						JOptionPane.showMessageDialog(this, "Gasto Operativo ha sido agregado con exito");
+
+					}
+					if(tipillo2 == 1)
+					{
+						inter.agregarGasto(nombre.getText(), Double.parseDouble(valor.getText()), EstadoDeResultados.NO_OPERACIONAL);
+						reestablecerValoresIniciales();
+						inter.getPanelER().actualizarGastosNoOp();
+						inter.getPanelER().actualizarTotales();
+						JOptionPane.showMessageDialog(this, "Gasto No Operativo ha sido agregado con exito");
+
+					}
+					if(tipillo2 == 2)
+					{
+						inter.agregarGasto(nombre.getText(), Double.parseDouble(valor.getText()), EstadoDeResultados.IMPUESTO);
+						reestablecerValoresIniciales();
+						inter.getPanelER().actualizarImpuestos();
+						inter.getPanelER().actualizarTotales();
+						JOptionPane.showMessageDialog(this, "Impuesto ha sido agregado con exito");
+					}
+					if(tipillo2 == 3)
+					{
+						inter.agregarGasto(nombre.getText(), Double.parseDouble(valor.getText()), EstadoDeResultados.COSTO_VENTA);
+						reestablecerValoresIniciales();
+						inter.getPanelER().actualizarCostoVenta();
+						inter.getPanelER().actualizarTotales();
+						JOptionPane.showMessageDialog(this, "Costo de Venta ha sido agregado con exito");
+					}
+					if(tipillo2 == 4)
+					{
+						inter.agregarGasto(nombre.getText(), Double.parseDouble(valor.getText()), EstadoDeResultados.IMPUESTO);
+						reestablecerValoresIniciales();
+						inter.getPanelER().actualizarReservas();;
+						inter.getPanelER().actualizarTotales();
+						JOptionPane.showMessageDialog(this, "Reserva ha sido agregada con exito");
+					}
 				}
 				catch(Exception e1) 
 				{
-				JOptionPane.showMessageDialog(this, "en el campo valor solo se aceptan numeros con punto como su decimal"+"\n"+"volver a intentar");
-				}			
-			
+					JOptionPane.showMessageDialog(this, "en el campo valor solo se aceptan numeros con punto como su decimal"+"\n"+"volver a intentar");
+				}
 			}
 		}
 		else if(e.getActionCommand().equals(ELIMINAR)) {
