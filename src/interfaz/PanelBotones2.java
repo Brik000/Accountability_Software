@@ -92,6 +92,7 @@ public class PanelBotones2 extends JPanel implements ActionListener{
 						inter.agregarIngreso(nombre.getText(), Double.parseDouble(valor.getText()), EstadoDeResultados.OPERACIONAL);
 						reestablecerValoresIniciales();
 						inter.getPanelER().actualizarIngresosOp();
+						inter.ER.actualizarUtilidades();
 						inter.getPanelER().actualizarTotales();
 						JOptionPane.showMessageDialog(this, "Ingreso Operativo ha sido agregado con exito");
 
@@ -101,6 +102,7 @@ public class PanelBotones2 extends JPanel implements ActionListener{
 						inter.agregarIngreso(nombre.getText(), Double.parseDouble(valor.getText()), EstadoDeResultados.NO_OPERACIONAL);
 						reestablecerValoresIniciales();
 						inter.getPanelER().actualizarIngresosNoOp();
+						inter.ER.actualizarUtilidades();
 						inter.getPanelER().actualizarTotales();
 						JOptionPane.showMessageDialog(this, "Ingreso No Operativo ha sido agregado con exito");
 
@@ -129,6 +131,7 @@ public class PanelBotones2 extends JPanel implements ActionListener{
 						inter.agregarGasto(nombre.getText(), Double.parseDouble(valor.getText()), EstadoDeResultados.OPERACIONAL);
 						reestablecerValoresIniciales();
 						inter.getPanelER().actualizarGastosOp();
+						inter.ER.actualizarUtilidades();
 						inter.getPanelER().actualizarTotales();
 						JOptionPane.showMessageDialog(this, "Gasto Operativo ha sido agregado con exito");
 
@@ -138,6 +141,7 @@ public class PanelBotones2 extends JPanel implements ActionListener{
 						inter.agregarGasto(nombre.getText(), Double.parseDouble(valor.getText()), EstadoDeResultados.NO_OPERACIONAL);
 						reestablecerValoresIniciales();
 						inter.getPanelER().actualizarGastosNoOp();
+						inter.ER.actualizarUtilidades();
 						inter.getPanelER().actualizarTotales();
 						JOptionPane.showMessageDialog(this, "Gasto No Operativo ha sido agregado con exito");
 
@@ -147,6 +151,7 @@ public class PanelBotones2 extends JPanel implements ActionListener{
 						inter.agregarGasto(nombre.getText(), Double.parseDouble(valor.getText()), EstadoDeResultados.IMPUESTO);
 						reestablecerValoresIniciales();
 						inter.getPanelER().actualizarImpuestos();
+						inter.ER.actualizarUtilidades();
 						inter.getPanelER().actualizarTotales();
 						JOptionPane.showMessageDialog(this, "Impuesto ha sido agregado con exito");
 					}
@@ -155,6 +160,7 @@ public class PanelBotones2 extends JPanel implements ActionListener{
 						inter.agregarGasto(nombre.getText(), Double.parseDouble(valor.getText()), EstadoDeResultados.COSTO_VENTA);
 						reestablecerValoresIniciales();
 						inter.getPanelER().actualizarCostoVenta();
+						inter.ER.actualizarUtilidades();
 						inter.getPanelER().actualizarTotales();
 						JOptionPane.showMessageDialog(this, "Costo de Venta ha sido agregado con exito");
 					}
@@ -162,7 +168,8 @@ public class PanelBotones2 extends JPanel implements ActionListener{
 					{
 						inter.agregarGasto(nombre.getText(), Double.parseDouble(valor.getText()), EstadoDeResultados.RESERVA);
 						reestablecerValoresIniciales();
-						inter.getPanelER().actualizarReservas();;
+						inter.getPanelER().actualizarReservas();
+						inter.ER.actualizarUtilidades();
 						inter.getPanelER().actualizarTotales();
 						JOptionPane.showMessageDialog(this, "Reserva ha sido agregada con exito");
 					}

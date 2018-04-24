@@ -39,6 +39,7 @@ public class EstadoDeResultados {
 	}
 	public void calcularUtilidadBruta()
 	{
+		utilidadBruta = 0;
 		for (int i = 0; i < ingresos.size(); i++) 
 		{
 			if(ingresos.get(i).getTipo().equals(OPERACIONAL))
@@ -56,6 +57,7 @@ public class EstadoDeResultados {
 	}
 	public void calcularUtilidadOperacional()
 	{
+		utilidadOperacional= 0;
 		utilidadOperacional += utilidadBruta;
 		for (int i = 0; i < gastos.size(); i++) 
 		{
@@ -67,6 +69,7 @@ public class EstadoDeResultados {
 	}
 	public void calcularUtilidadAntesDeImpuesto()
 	{
+		utilidadAntImp = 0;
 		utilidadAntImp += utilidadOperacional;
 		for (int i = 0; i < ingresos.size(); i++) 
 		{
@@ -85,6 +88,7 @@ public class EstadoDeResultados {
 	}
 	public void calcularUtilidadLiquida()
 	{
+		utilidadLiquida= 0;
 		utilidadLiquida += utilidadAntImp;
 		for (int i = 0; i < gastos.size(); i++) 
 		{
@@ -96,6 +100,7 @@ public class EstadoDeResultados {
 	}
 	public void calcularUtilidadNeta()
 	{
+		utilidadNeta = 0;
 		utilidadNeta += utilidadLiquida;
 		for (int i = 0; i < gastos.size(); i++) 
 		{
@@ -218,5 +223,13 @@ public class EstadoDeResultados {
 	}
 	public void setUtilidadNeta(double utilidadNeta) {
 		this.utilidadNeta = utilidadNeta;
+	}
+	public void actualizarUtilidades()
+	{
+		calcularUtilidadBruta();
+		calcularUtilidadOperacional();
+		calcularUtilidadAntesDeImpuesto();
+		calcularUtilidadLiquida();
+		calcularUtilidadNeta();
 	}
 }
