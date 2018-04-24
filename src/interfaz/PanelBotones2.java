@@ -160,7 +160,7 @@ public class PanelBotones2 extends JPanel implements ActionListener{
 					}
 					if(tipillo2 == 4)
 					{
-						inter.agregarGasto(nombre.getText(), Double.parseDouble(valor.getText()), EstadoDeResultados.IMPUESTO);
+						inter.agregarGasto(nombre.getText(), Double.parseDouble(valor.getText()), EstadoDeResultados.RESERVA);
 						reestablecerValoresIniciales();
 						inter.getPanelER().actualizarReservas();;
 						inter.getPanelER().actualizarTotales();

@@ -218,11 +218,13 @@ public class FramePrincipal extends JFrame{
 	public void agregarIngreso(String nombre, double valor, String tipo)
 	{
 		ER.agregarIngreso(nombre, valor, tipo);
+		panelER.inicializarPanelEstadoDeResultados(this);
 		pack();
 	}
 	public void agregarGasto(String nombre, double valor, String tipo)
 	{
 		ER.agregarGasto(nombre, valor, tipo);
+		panelER.inicializarPanelEstadoDeResultados(this);
 		pack();
 	}
 	public static void main(String[] args) {

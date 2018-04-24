@@ -29,15 +29,15 @@ public class PanelEstadoDeResultados extends JPanel{
 	PanelTotales totales;
 	
 	JLabel labUtilidadBruta;
-	JTextField txtUtilidadBruta;
+	JLabel txtUtilidadBruta;
 	JLabel labUtilidadOperacional;
-	JTextField txtUtilidadOperacional;
+	JLabel txtUtilidadOperacional;
 	JLabel labUtilidadAntImp;
-	JTextField txtUtilidadAntImp;
+	JLabel txtUtilidadAntImp;
 	JLabel labUtilidadLiquida;
-	JTextField txtUtilidadLiquida;
+	JLabel txtUtilidadLiquida;
 	JLabel labUtilidadNeta;
-	JTextField txtUtilidadNeta;
+	JLabel txtUtilidadNeta;
 	
 	JScrollPane uno;
 	JScrollPane dos;
@@ -49,6 +49,7 @@ public class PanelEstadoDeResultados extends JPanel{
 	}
 	public void inicializarPanelEstadoDeResultados(FramePrincipal v)
 	{
+		this.removeAll();
 		setLayout(new BorderLayout());
 		uno = new JScrollPane();
 		dos = new JScrollPane();
@@ -56,66 +57,66 @@ public class PanelEstadoDeResultados extends JPanel{
 		
 		frame = v;
 		
-		ingresosOp = new PanelData(frame.darIngresosOperacionales());
-        Border bordeIngresosOp = new TitledBorder("Ingresos Operacionales");
-        ingresosOp.setBorder(bordeIngresosOp);
+		ingresosOp = new PanelData(frame.darIngresosOperacionales(), "Ingresos Operacionales");
+//        Border bordeIngresosOp = new TitledBorder("Ingresos Operacionales");
+//        ingresosOp.setBorder(bordeIngresosOp);
         
-		ingresosNoOp = new PanelData(frame.darIngresosNoOperacionales());
-		Border bordeIngresosNoOp = new TitledBorder("Ingresos no Operacionales");
-		ingresosNoOp.setBorder(bordeIngresosNoOp);
+		ingresosNoOp = new PanelData(frame.darIngresosNoOperacionales(), "Ingresos No Operacionales");
+//		Border bordeIngresosNoOp = new TitledBorder("Ingresos no Operacionales");
+//		ingresosNoOp.setBorder(bordeIngresosNoOp);
 		 
-		gastosOp = new PanelData(frame.darGastosOperacionales());
-		Border bordeGastosOp = new TitledBorder("Gastos Operacionales");
-		gastosOp.setBorder(bordeGastosOp);
+		gastosOp = new PanelData(frame.darGastosOperacionales(), "Gastos Operacionales");
+//		Border bordeGastosOp = new TitledBorder("Gastos Operacionales");
+//		gastosOp.setBorder(bordeGastosOp);
 		
-		gastosNoOp = new PanelData(frame.darGastosNoOperacionales());
-		Border bordeGastosNoOp = new TitledBorder("Gastos no Operacionales");
-		gastosNoOp.setBorder(bordeGastosNoOp);
+		gastosNoOp = new PanelData(frame.darGastosNoOperacionales(), "Gastos No Operacionales");
+//		Border bordeGastosNoOp = new TitledBorder("Gastos no Operacionales");
+//		gastosNoOp.setBorder(bordeGastosNoOp);
 		
-		impuestos = new PanelData(frame.darImpuestos());
-		Border bordeImpuestos = new TitledBorder("Impuestos");
-		impuestos.setBorder(bordeImpuestos);
+		impuestos = new PanelData(frame.darImpuestos(), "Impuestos");
+//		Border bordeImpuestos = new TitledBorder("Impuestos");
+//		impuestos.setBorder(bordeImpuestos);
 		
-		reservas = new PanelData(frame.darReervas());
-		Border bordeReservas = new TitledBorder("Reservas");
-		reservas.setBorder(bordeReservas);
+		reservas = new PanelData(frame.darReervas(), "Reservas");
+//		Border bordeReservas = new TitledBorder("Reservas");
+//		reservas.setBorder(bordeReservas);
 		
-		costoVenta = new PanelData(frame.darCostoVenta());
-        Border bordeCostoVenta = new TitledBorder("Costos de Venta");
-        ingresosOp.setBorder(bordeCostoVenta);
+		costoVenta = new PanelData(frame.darCostoVenta(), "Costos de Venta");
+//        Border bordeCostoVenta = new TitledBorder("Costos de Venta");
+//        ingresosOp.setBorder(bordeCostoVenta);
         
 		
-		JPanel auxUtilidadBruta = new JPanel(new GridLayout(1, 2));
-		txtUtilidadBruta = new JTextField(frame.getER().getUtilidadBruta()+"");	
+		JPanel auxUtilidadBruta = new JPanel(new BorderLayout());
+		txtUtilidadBruta = new JLabel(frame.getER().getUtilidadBruta()+"");	
 		labUtilidadBruta = new JLabel("Utilidad Bruta");
-		auxUtilidadBruta.add(labUtilidadBruta);
-		auxUtilidadBruta.add(txtUtilidadBruta);
+		auxUtilidadBruta.add(labUtilidadBruta, BorderLayout.CENTER);
+		auxUtilidadBruta.add(txtUtilidadBruta, BorderLayout.EAST);
 		
-		JPanel auxUtilidadOperacional = new JPanel(new GridLayout(1, 2));
-		txtUtilidadOperacional = new JTextField(frame.getER().getUtilidadOperacional()+"");	
+		JPanel auxUtilidadOperacional = new JPanel(new BorderLayout());
+		txtUtilidadOperacional = new JLabel(frame.getER().getUtilidadOperacional()+"");	
 		labUtilidadOperacional = new JLabel("Utilidad Operacional");
-		auxUtilidadOperacional.add(labUtilidadOperacional);
-		auxUtilidadOperacional.add(txtUtilidadOperacional);
+		auxUtilidadOperacional.add(labUtilidadOperacional, BorderLayout.CENTER);
+		auxUtilidadOperacional.add(txtUtilidadOperacional, BorderLayout.EAST);
 		
-		JPanel auxUtilidadAntImp = new JPanel(new GridLayout(1, 2));
-		txtUtilidadAntImp = new JTextField(frame.getER().getUtilidadAntImp()+"");	
+		JPanel auxUtilidadAntImp = new JPanel(new BorderLayout());
+		txtUtilidadAntImp = new JLabel(frame.getER().getUtilidadAntImp()+"");	
 		labUtilidadAntImp = new JLabel("Utilidad Bruta");
-		auxUtilidadAntImp.add(labUtilidadAntImp);
-		auxUtilidadAntImp.add(txtUtilidadAntImp);
+		auxUtilidadAntImp.add(labUtilidadAntImp, BorderLayout.CENTER);
+		auxUtilidadAntImp.add(txtUtilidadAntImp, BorderLayout.EAST);
 		
-		JPanel auxUtilidadLiquida = new JPanel(new GridLayout(1, 2));
-		txtUtilidadLiquida = new JTextField(frame.getER().getUtilidadLiquida()+"");	
+		JPanel auxUtilidadLiquida = new JPanel(new BorderLayout());
+		txtUtilidadLiquida = new JLabel(frame.getER().getUtilidadLiquida()+"");	
 		labUtilidadLiquida = new JLabel("Utilidad Liquida");
-		auxUtilidadLiquida.add(labUtilidadLiquida);
-		auxUtilidadLiquida.add(txtUtilidadLiquida);
+		auxUtilidadLiquida.add(labUtilidadLiquida, BorderLayout.CENTER);
+		auxUtilidadLiquida.add(txtUtilidadLiquida, BorderLayout.EAST);
 		
-		JPanel auxUtilidadNeta = new JPanel(new GridLayout(1, 2));
-		txtUtilidadNeta = new JTextField(frame.getER().getUtilidadNeta()+"");	
+		JPanel auxUtilidadNeta = new JPanel(new BorderLayout());
+		txtUtilidadNeta = new JLabel(frame.getER().getUtilidadNeta()+"");	
 		labUtilidadNeta = new JLabel("Utilidad Neta");
-		auxUtilidadNeta.add(labUtilidadNeta);
-		auxUtilidadNeta.add(txtUtilidadNeta);
+		auxUtilidadNeta.add(labUtilidadNeta, BorderLayout.CENTER);
+		auxUtilidadNeta.add(txtUtilidadNeta, BorderLayout.EAST);
 		
-		JPanel auxPrincipal = new JPanel(new GridLayout(0, 1));
+		JPanel auxPrincipal = new JPanel(new GridLayout(0, 1, 0,10));
 		auxPrincipal.add(ingresosOp);
 		auxPrincipal.add(costoVenta);
 		auxPrincipal.add(auxUtilidadBruta);
@@ -131,8 +132,17 @@ public class PanelEstadoDeResultados extends JPanel{
 		
 		botones = new PanelBotones2(frame);
 		 
+		actualizarIngresosOp();
+		actualizarIngresosNoOp();
+		actualizarGastosOp();
+		actualizarGastosNoOp();
+		actualizarImpuestos();
+		actualizarReservas();
+		actualizarCostoVenta();
+		actualizarTotales();
 		this.add(auxPrincipal,BorderLayout.CENTER);
 		this.add(botones,BorderLayout.SOUTH);
+	
 	}
 	public void actualizarIngresosOp()
 	{
