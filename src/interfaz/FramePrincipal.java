@@ -41,7 +41,7 @@ public class FramePrincipal extends JFrame{
 	
 	PanelBalanceGeneral panelBG;
 	PanelEstadoDeResultados panelER;
-	
+	PanelInventarios panelInventarios;
 	
 	
 	public FramePrincipal() {
@@ -86,11 +86,16 @@ public class FramePrincipal extends JFrame{
 		JTabbedPane aux = new JTabbedPane();
 		ER = new EstadoDeResultados();
 		panelER = new PanelEstadoDeResultados(this);
-		
 		BG = new BalanceGeneral();
 		panelBG = new PanelBalanceGeneral(this);
+	
+		panelInventarios= new PanelInventarios(this, BG.getInventario().getTabla());
+		
 		aux.addTab("Balance General", panelBG);
 		aux.addTab("Estado de Resultados", panelER);
+		
+		aux.addTab("Inventario KARDEX", panelInventarios);
+		
 		add(aux);
 		//this.add(botones,BorderLayout.SOUTH);
 		
@@ -231,6 +236,21 @@ public class FramePrincipal extends JFrame{
 		FramePrincipal frame=new FramePrincipal();
 		frame.setVisible(true);
 		
+	}
+
+	public void agregarCompra(int unidades, double precioUnidad) {
+		BG.agregarCompra(unidades, precioUnidad);
+		panelInventarios.actualizarPanel(BG.getInventario().getTabla());
+	}
+
+	public void agregarInventarioInicial(int unidades, double precioUnidad) {
+		BG.agregarSaldoInicial(unidades, precioUnidad);
+		panelInventarios.actualizarPanel(BG.getInventario().getTabla());
+	}
+
+	public void agregarVenta(int unidades) {
+		BG.agregarVenta(unidades);
+		panelInventarios.actualizarPanel(BG.getInventario().getTabla());
 	}
 	
 }

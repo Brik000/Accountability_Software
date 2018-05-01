@@ -1,7 +1,7 @@
 package mundo;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
+
 
 public class BalanceGeneral {
 	
@@ -11,6 +11,8 @@ public class BalanceGeneral {
 	private ArrayList<Activo> activos;
 	private ArrayList<Pasivo> pasivos;
 	private ArrayList<Patrimonio> patrimonio;
+	
+	private Inventario inventario;
 	//contiene el total de los activos
 	private double total1;
 	//contiene el total de los pasivos+patrimonio
@@ -20,6 +22,7 @@ public class BalanceGeneral {
 		this.activos = new ArrayList<Activo>();
 		this.pasivos = new ArrayList<Pasivo>();
 		this.patrimonio = new ArrayList<Patrimonio>();
+		this.inventario= new Inventario();
 		this.total1 = 0.0;
 		this.total2 = 0.0;
 	}
@@ -119,4 +122,20 @@ public class BalanceGeneral {
 	public void setTotal2(double total2) {
 		this.total2 = total2;
 	}
+	public Inventario getInventario() {
+		return inventario;
+	}
+	public void setInventario(Inventario inventario) {
+		this.inventario = inventario;
+	}
+	public void agregarCompra(int unidades, double precioUnidad) {
+		inventario.agregarCompraPonderado(unidades, precioUnidad);
+	}
+	public void agregarVenta(int unidades) {
+		inventario.agregarVentaPonderado(unidades);
+	}
+	public void agregarSaldoInicial(int unidades,double precioUnidad) {
+		inventario.setSaldoInicial(unidades, precioUnidad);
+	}
+
 }
