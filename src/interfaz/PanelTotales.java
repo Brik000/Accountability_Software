@@ -55,14 +55,11 @@ public class PanelTotales extends JPanel{
 		 txtTotalPasivosMasActivos.setFont(new java.awt.Font("Tahoma",0,20));
 		 
 		 if(inter.totalActivos() == inter.totalPasivosPatrimonio()) {
-			 
 			 txtTotalActivos.setForeground(Color.GREEN);
 			 txtTotalPasivosMasActivos.setForeground(Color.GREEN);
 		 }else {
-			
 			 txtTotalActivos.setForeground(Color.RED);
 			 txtTotalPasivosMasActivos.setForeground(Color.RED);
-			 
 		 }
 		 
 		 add(labTotalActivos);
