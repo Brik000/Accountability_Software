@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -25,8 +26,18 @@ public class PanelBotones2 extends JPanel implements ActionListener{
 	JButton btnEliminar;
 	FramePrincipal inter;
 	
+
+	JLabel JlabelNombre;
+	JLabel JlabelValor;
+	
+	JLabel espacio1;
+	JLabel espacio2;
+	JLabel espacio3;
+	JLabel espacio4;
+
+	
 	public PanelBotones2(FramePrincipal inter) {
-		this.setLayout(new GridLayout(1,6));
+		this.setLayout(new GridLayout(2,6));
 		this.inter=inter;
 		btnAgregar=new JButton("Agregar");
 		btnAgregar.addActionListener(this);
@@ -36,12 +47,31 @@ public class PanelBotones2 extends JPanel implements ActionListener{
 		btnEliminar.addActionListener(this);
 		btnEliminar.setActionCommand(ELIMINAR);
 		
-		nombre=new JTextField("nombre");
-		valor=new JTextField("valor");
+
+		JlabelNombre = new JLabel("Nombre:");
+		JlabelValor = new JLabel("Valor:");
+		
+		espacio1 = new JLabel();
+		espacio2 = new JLabel();
+		espacio3= new JLabel();
+		espacio4 = new JLabel();
+		
+		
+		nombre=new JTextField("");
+		valor=new JTextField("");
 		String[] tipos={"Ingreso","Gasto",};
 		tipo=new JComboBox<String>(tipos);
 		String[] tipos2={"Operacional","No Operacional", "Impuesto", "Costo de Venta", "Reserva"};
 		tipo2=new JComboBox<String>(tipos2);
+		
+		
+
+		add(JlabelNombre);
+		add(JlabelValor);
+		add(espacio1);
+		add(espacio2);
+		add(espacio3);
+		add(espacio4);
 		add(nombre);
 		add(valor);
 		add(tipo);
@@ -51,8 +81,9 @@ public class PanelBotones2 extends JPanel implements ActionListener{
 	}
 	
 	public void reestablecerValoresIniciales() {
+		
 		this.removeAll();
-		this.setLayout(new GridLayout(1,6));
+		this.setLayout(new GridLayout(2,6));
 		btnAgregar=new JButton("Agregar");
 		btnAgregar.addActionListener(this);
 		btnAgregar.setActionCommand(AGREGAR);
@@ -61,18 +92,35 @@ public class PanelBotones2 extends JPanel implements ActionListener{
 		btnEliminar.addActionListener(this);
 		btnEliminar.setActionCommand(ELIMINAR);
 		
-		nombre=new JTextField("nombre");
-		valor=new JTextField("valor");
+
+		JlabelNombre = new JLabel("Nombre:");
+		JlabelValor = new JLabel("Valor:");
+		
+		espacio1 = new JLabel();
+		espacio2 = new JLabel();
+		espacio3= new JLabel();
+		espacio4 = new JLabel();
+		
+		
+		nombre=new JTextField("");
+		valor=new JTextField("");
 		String[] tipos={"Ingreso","Gasto",};
 		tipo=new JComboBox<String>(tipos);
 		String[] tipos2={"Operacional","No Operacional", "Impuesto", "Costo de Venta", "Reserva"};
 		tipo2=new JComboBox<String>(tipos2);
+		
+		add(JlabelNombre);
+		add(JlabelValor);
+		add(espacio1);
+		add(espacio2);
+		add(espacio3);
+		add(espacio4);
 		add(nombre);
 		add(valor);
 		add(tipo);
 		add(tipo2);
 		add(btnAgregar);
-		add(btnEliminar);
+		add(btnEliminar);	
 	}
 	
 	
@@ -107,7 +155,7 @@ public class PanelBotones2 extends JPanel implements ActionListener{
 						JOptionPane.showMessageDialog(this, "Ingreso No Operativo ha sido agregado con exito");
 
 					}
-					if(tipillo2 == 2 || tipillo2 == 3 || tipillo == 4)
+					if(tipillo2 == 2 || tipillo2 == 3 || tipillo2 == 4)
 					{
 						throw new Exception("No puede haber Ingresos de tipos impuestos, reservas o costo de venta");
 					}

@@ -42,7 +42,7 @@ public class FramePrincipal extends JFrame{
 	PanelBalanceGeneral panelBG;
 	PanelEstadoDeResultados panelER;
 	PanelInventarios panelInventarios;
-	
+	PanelBanner panelBanner;
 	
 	public FramePrincipal() {
 //		uno=new JScrollPane();
@@ -83,6 +83,11 @@ public class FramePrincipal extends JFrame{
 //		aux.add(totales);
 //		aux.add(tres);
 		
+		
+		panelBanner = new PanelBanner();
+	
+		setLayout(new BorderLayout());
+		
 		JTabbedPane aux = new JTabbedPane();
 		ER = new EstadoDeResultados();
 		panelER = new PanelEstadoDeResultados(this);
@@ -96,9 +101,8 @@ public class FramePrincipal extends JFrame{
 		
 		aux.addTab("Inventario KARDEX", panelInventarios);
 		
-		add(aux);
-		//this.add(botones,BorderLayout.SOUTH);
-		
+		add(panelBanner, BorderLayout.NORTH);
+		add(aux, BorderLayout.CENTER);
 		pack();
 		this.setResizable(true);
 	}

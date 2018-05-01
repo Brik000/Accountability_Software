@@ -58,32 +58,32 @@ public class PanelEstadoDeResultados extends JPanel{
 		frame = v;
 		
 		ingresosOp = new PanelData(frame.darIngresosOperacionales(), "Ingresos Operacionales");
-//        Border bordeIngresosOp = new TitledBorder("Ingresos Operacionales");
-//        ingresosOp.setBorder(bordeIngresosOp);
+		Border bordeIngresosOp = new TitledBorder("Ingresos Operacionales");
+		ingresosOp.setBorder(bordeIngresosOp);
         
 		ingresosNoOp = new PanelData(frame.darIngresosNoOperacionales(), "Ingresos No Operacionales");
-//		Border bordeIngresosNoOp = new TitledBorder("Ingresos no Operacionales");
-//		ingresosNoOp.setBorder(bordeIngresosNoOp);
+		Border bordeIngresosNoOp = new TitledBorder("Ingresos no Operacionales");
+		ingresosNoOp.setBorder(bordeIngresosNoOp);
 		 
 		gastosOp = new PanelData(frame.darGastosOperacionales(), "Gastos Operacionales");
-//		Border bordeGastosOp = new TitledBorder("Gastos Operacionales");
-//		gastosOp.setBorder(bordeGastosOp);
+		Border bordeGastosOp = new TitledBorder("Gastos Operacionales");
+		gastosOp.setBorder(bordeGastosOp);
 		
 		gastosNoOp = new PanelData(frame.darGastosNoOperacionales(), "Gastos No Operacionales");
-//		Border bordeGastosNoOp = new TitledBorder("Gastos no Operacionales");
-//		gastosNoOp.setBorder(bordeGastosNoOp);
+		Border bordeGastosNoOp = new TitledBorder("Gastos no Operacionales");
+		gastosNoOp.setBorder(bordeGastosNoOp);
 		
 		impuestos = new PanelData(frame.darImpuestos(), "Impuestos");
-//		Border bordeImpuestos = new TitledBorder("Impuestos");
-//		impuestos.setBorder(bordeImpuestos);
+		Border bordeImpuestos = new TitledBorder("Impuestos");
+		impuestos.setBorder(bordeImpuestos);
 		
 		reservas = new PanelData(frame.darReervas(), "Reservas");
-//		Border bordeReservas = new TitledBorder("Reservas");
-//		reservas.setBorder(bordeReservas);
+		Border bordeReservas = new TitledBorder("Reservas");
+		reservas.setBorder(bordeReservas);
 		
 		costoVenta = new PanelData(frame.darCostoVenta(), "Costos de Venta");
-//        Border bordeCostoVenta = new TitledBorder("Costos de Venta");
-//        ingresosOp.setBorder(bordeCostoVenta);
+        Border bordeCostoVenta = new TitledBorder("Costos de Venta");
+        ingresosOp.setBorder(bordeCostoVenta);
         
 		
 		JPanel auxUtilidadBruta = new JPanel(new BorderLayout());

@@ -1,5 +1,6 @@
 package interfaz;
 
+import java.awt.Color;
 import java.awt.GridLayout;
 import java.text.DecimalFormat;
 
@@ -11,6 +12,7 @@ public class PanelTotales extends JPanel{
 	FramePrincipal inter;
 	//el vaino de los totales 
 	public PanelTotales(FramePrincipal inter) {
+		
 	this.inter=inter;
 	 setLayout(new GridLayout(2,2));
 	
@@ -24,6 +26,11 @@ public class PanelTotales extends JPanel{
 	 add(labTotalPasivosMasActivos);
 	 add(txtTotalActivos);
 	 add(txtTotalPasivosMasActivos);
+	
+	 
+	
+	 
+	 
 	 
 	}
 	public void actualizarPanel() {
@@ -40,6 +47,9 @@ public class PanelTotales extends JPanel{
 		 add(labTotalPasivosMasActivos);
 		 add(txtTotalActivos);
 		 add(txtTotalPasivosMasActivos);
+		 
+		
+		 
 	}
 	public String decimalFormatNum(double a) {
 		DecimalFormat df=new DecimalFormat("0.00");
