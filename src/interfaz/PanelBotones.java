@@ -199,8 +199,8 @@ public class PanelBotones extends JPanel implements ActionListener{
 					{
 						JOptionPane.showMessageDialog(this, e2.getMessage());
 					}
-					System.out.println(e2.getMessage());
-					JOptionPane.showMessageDialog(this, "en el campo valor solo se aceptan numeros con punto como su decimal"+"\n"+"volver a intentar");
+					//System.out.println(e2.getMessage());
+					//JOptionPane.showMessageDialog(this, "en el campo valor solo se aceptan numeros con punto como su decimal"+"\n"+"volver a intentar");
 				
 				}
 				
@@ -257,7 +257,7 @@ public class PanelBotones extends JPanel implements ActionListener{
 						JOptionPane.showMessageDialog(this, "Reserva ha sido agregada con exito");
 					}
 				} catch (Exception e2) {
-					JOptionPane.showMessageDialog(this, "en el campo valor solo se aceptan numeros con punto como su decimal"+"\n"+"volver a intentar");
+					JOptionPane.showMessageDialog(this, "En el campo valor solo se aceptan numeros con punto como su decimal"+"\n"+"volver a intentar");
 				}
 				
 				
